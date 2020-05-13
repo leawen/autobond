@@ -52,18 +52,24 @@ Page({
       motto: '发起注册……'
     })
 
-
-
-     console.log('test for 中文昵称！')
      console.log(this.data.userInfo)
      console.log(this.data.userInfo.nickName)
-     var nickname = encodeURI(this.data.userInfo.nickName)
-     console.log(nickname)
+     //var nickname = encodeURI(this.data.userInfo.nickName)
+     //console.log(nickname)
      var _this= this;
-
       wx.request({
-        url: 'https://www.microservice.work:8080/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
-        
+        //url: 'https://www.microservice.work:8080/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
+        url: 'https://www.microservice.work:8080/login',
+        method: 'GET',
+        data:{
+          username:this.data.userN,
+          password:this.data.passW,
+          bond:'1',
+          share:'1',
+          duration:'30',
+          sell:'0',
+          nickname:this.data.userInfo.nickName
+        },
         //method: 'POST',
         /*
         header: { 'content-type': 'application/json'},
@@ -74,6 +80,7 @@ Page({
         },
         */
         success: function(res) {
+
           console.log(res)// 服务器回包信息
           if(res.data == 'True'){
             wx.showToast({ title: '提交成功' })
@@ -88,8 +95,9 @@ Page({
           }
         },
         fail: function(res) {
+          //console.log(url)
+          console.log(res)// 服务器回包信息
           wx.showToast({ title: '系统错误', icon:'none' })
-          console.log(res)
           _this.setData({
             motto: '抱歉！注册失败了！'
           })

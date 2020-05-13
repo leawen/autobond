@@ -4,11 +4,12 @@
   flex-direction: column;
   align-items: center;
   margin-top: -150rpx;
+  font-size: 40rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 180rpx;
+  height: 180rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
@@ -16,7 +17,55 @@
 /*为啥没生效*/
 .itemViewA {
   align-items: left;
-  margin-top: 50rpx;
+  margin-top: 80rpx;
+  font-size: 40rpx;
+}
+
+.itemViewP {
+  align-items: left;
+  margin-top: 10rpx;
+  font-size: 40rpx;
+}
+
+.itemViewC {
+  align-items: left;
+  margin-top: 10rpx;
+  font-size: 40rpx;
+}
+
+.viewName {
+  margin-top: 100rpx;
+  align-items: left;
+}
+
+.uploadBtn {
+  height: 80rpx;
+  width: 200rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  text-align: center;
+  background-color: lightgray;
+  align-items: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*display: table-cell;*/
+}
+
+
+.clearBtn {
+  height: 80rpx;
+  width: 200rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  text-align: center;
+  margin-top: 10rpx;
+  background-color: lightgray;
+  align-items: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .userinfo-nickname {
