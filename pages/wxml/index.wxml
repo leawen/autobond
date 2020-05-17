@@ -20,10 +20,11 @@
       <input class="input" password value='{{Password}}' placeholder="请输入密码"
       bindinput="passWdInput" />
     </view>
-  <view class="itemViewC">邀请码：
+<!---  <view class="itemViewC">邀请码：
       <input class="input" invitecode value='{{InviteCode}}' placeholder="请输入邀请码"
       bindinput="inviteCodeInput" />
     </view>
+    -->
   <view class="viewName" style="">
     <button class="uploadBtn" bindtap="loginBtnClick">提交</button>
     <button class="clearBtn" bindtap="clearBtnClick">清除</button>
