@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    motto: '测试提交信息',
+    motto: '请提交要预约申购的账户信息',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -36,20 +36,13 @@ Page({
   //登录按钮点击事件，调用参数要用：this.data.参数；
   //设置参数值，要使用this.setData({}）方法
   loginBtnClick:function(){
-    if(this.data.userN.length == 0 || this.data.passW.length == 0 || this.data.inviteCode == 0){
+    if(this.data.userN.length == 0 || this.data.passW.length == 0 ){
       this.setData({
-        infoMess:'提示：用户名、密码、邀请码不能为空！',
+        infoMess:'提示：用户名、密码不能为空！',
       })
     }else{
-      /*
-      this.setData({
-        infoMess:'',
-        userName:'用户名：'+this.data.userN,
-        passWd:'密码：'+this.data.passW
-      })
-      */
      this.setData({
-      motto: '发起注册……'
+      motto: '发起预约……'
     })
 
      console.log(this.data.userInfo)
@@ -82,15 +75,15 @@ Page({
         success: function(res) {
 
           console.log(res)// 服务器回包信息
-          if(res.data == 'True'){
+          if(res.data == true){
             wx.showToast({ title: '提交成功' })
             _this.setData({
-              motto: '恭喜！提交注册成功！'
+              motto: '恭喜！提交预约成功！'
             })
           }else{
             wx.showToast({ title: '提交失败', icon:'none' })
             _this.setData({
-              motto: '抱歉！注册失败了！'
+              motto: '预约失败！请校验账户信息并重试！'
             })
           }
         },
@@ -99,7 +92,7 @@ Page({
           console.log(res)// 服务器回包信息
           wx.showToast({ title: '系统错误', icon:'none' })
           _this.setData({
-            motto: '抱歉！注册失败了！'
+            motto: '抱歉！预约失败了！'
           })
 
         }
@@ -110,7 +103,7 @@ Page({
   //重置按钮点击事件
   clearBtnClick:function(e){
     this.setData({
-      motto: '请提交注册信息',
+      motto: '请提交要预约申购的账户信息',
       /*
       userInfo: {},
       hasUserInfo: false,
