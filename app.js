@@ -9,7 +9,31 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var code = res.code; //返回code
+        console.log('获取用户code是：',code);
+        wx.request({
+          url: 'https://www.microservice.work:8080/getlogin',
+          data: {
+            code:code
+          },
+          header: {
+            'content-type': 'json'
+          },
+          success: function(res) {
+            console.log(res)
+            if(res.data.result == 'true'){
+              console.log('用户信息获取成功');
+              this.globalData.sessionId = res.data.sessionid
+            }else{
+              console.log('用户信息获取失败');
+              this.globalData.sessionId = "none"
+            }
+          },
+          fail: function(res) {
+            console.log('获取登录信息失败'),
+            this.globalData.sessionId = "none"
+          }
+        })
       }
     })
     // 获取用户信息
@@ -34,6 +58,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    sessionId: ""
   }
 })

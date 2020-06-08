@@ -16,6 +16,8 @@ Page({
     userN:'',
     passW:'',
     inviteCode:'',
+    //与后端的连接信息
+    sessionId:''
   },
   //用户名和密码输入框事件
   accountInput:function(e){
@@ -49,7 +51,7 @@ Page({
      console.log(this.data.userInfo.nickName)
      //var nickname = encodeURI(this.data.userInfo.nickName)
      //console.log(nickname)
-     var _this= this;
+     var _this = this;
       wx.request({
         //url: 'https://www.microservice.work:8080/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
         url: 'https://www.microservice.work:8080/login',
@@ -158,7 +160,23 @@ Page({
         }
       })
     }
-  },
+
+    if (app.globalData.sessionId == "") {
+      console.log("id is empty, need callback")
+        this.setData({
+//          sessionId: "none",
+        })
+    } else if (app.globalData.sessionId == "none"){
+      console.log("not get session id")
+      this.setData({
+//        sessionId: app.globalData.sessionId,
+      })
+    } else {
+      this.setData({
+//        sessionId: app.globalData.sessionId,
+      })
+    }
+ },
 
   getUserInfo: function(e) {
     console.log(e)
