@@ -10,6 +10,8 @@ App({
     wx.login({
       success: res => {
         var code = res.code; //返回code
+        //在wx.request中，this不表示app或者本文件的上下文；而是在index的上下文了；如后面判断了this.sessionInfoReadyCallback是否存在
+        var that = this
         console.log('获取用户code是：',code);
         wx.request({
           url: 'https://www.microservice.work:8080/getlogin',
@@ -23,15 +25,27 @@ App({
             console.log(res)
             if(res.data.result == 'true'){
               console.log('用户信息获取成功');
-              this.globalData.sessionId = res.data.sessionid
+              that.globalData.sessionId = res.data.sessionid
             }else{
               console.log('用户信息获取失败');
-              this.globalData.sessionId = "none"
+              that.globalData.sessionId = "none"
             }
+
+            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+            // 所以此处加入 callback 以防止这种情况
+            if (this.sessionInfoReadyCallback) {
+              this.sessionInfoReadyCallback(res)
+            }
+
           },
           fail: function(res) {
             console.log('获取登录信息失败'),
-            this.globalData.sessionId = "none"
+            that.globalData.sessionId = "none"
+
+            if (this.sessionInfoReadyCallback) {
+              this.sessionInfoReadyCallback(res)
+            }
+
           }
         })
       }
@@ -59,6 +73,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    sessionId: ""
-  }
+    sessionId: null
+  },
 })

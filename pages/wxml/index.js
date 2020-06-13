@@ -13,11 +13,11 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     nickname: '',
     infoMess: '',
-    userN:'',
-    passW:'',
-    inviteCode:'',
+    userN: '',
+    passW: '',
+    inviteCode: '',
     //与后端的连接信息
-    sessionId:''
+    sessionKey: '',
   },
   //用户名和密码输入框事件
   accountInput:function(e){
@@ -63,7 +63,8 @@ Page({
           share:'1',
           duration:'30',
           sell:'0',
-          nickname:this.data.userInfo.nickName
+          nickname:this.data.userInfo.nickName,
+          sessionid:this.data.sessionKey
         },
         //method: 'POST',
         /*
@@ -77,12 +78,14 @@ Page({
         success: function(res) {
 
           console.log(res)// 服务器回包信息
-          if(res.data == true){
+          if(res.data == "True"){
+
             wx.showToast({ title: '提交成功' })
             _this.setData({
               motto: '恭喜！提交预约成功！'
             })
           }else{
+            console.log('get return else')
             wx.showToast({ title: '提交失败', icon:'none' })
             _this.setData({
               motto: '预约失败！请校验账户信息并重试！'
@@ -147,7 +150,7 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-      }
+      };
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
@@ -161,21 +164,23 @@ Page({
       })
     }
 
-    if (app.globalData.sessionId == "") {
-      console.log("id is empty, need callback")
-        this.setData({
-//          sessionId: "none",
-        })
-    } else if (app.globalData.sessionId == "none"){
-      console.log("not get session id")
+    app.sessionInfoReadyCallback = res => {
       this.setData({
-//        sessionId: app.globalData.sessionId,
+        sessionKey: res.data.sessionid
+      })
+    };
+
+
+    if (app.globalData.sessionId) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      this.setData({
+        sessionKey: app.globalData.sessionId,
       })
     } else {
-      this.setData({
-//        sessionId: app.globalData.sessionId,
-      })
+      console.log("globalData.sessionId is empty, need callback")
     }
+
  },
 
   getUserInfo: function(e) {
