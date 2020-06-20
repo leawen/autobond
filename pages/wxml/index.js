@@ -53,7 +53,7 @@ Page({
      //console.log(nickname)
      var _this = this;
       wx.request({
-        //url: 'https://www.microservice.work:8080/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
+        //url: 'https://www.microservice.work:8090/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
         url: 'https://www.microservice.work:8080/login',
         method: 'GET',
         data:{
@@ -165,6 +165,7 @@ Page({
     }
 
     app.sessionInfoReadyCallback = res => {
+      console.log("get res is "+ rest)
       this.setData({
         sessionKey: res.data.sessionid
       })

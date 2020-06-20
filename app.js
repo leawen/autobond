@@ -14,7 +14,7 @@ App({
         var that = this
         console.log('获取用户code是：',code);
         wx.request({
-          url: 'https://www.microservice.work:8080/getlogin',
+          url: 'https://www.microservice.work:8090/getlogin',
           data: {
             code:code
           },
