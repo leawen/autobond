@@ -164,13 +164,6 @@ Page({
       })
     }
 
-    app.sessionInfoReadyCallback = res => {
-      console.log("get res is "+ rest)
-      this.setData({
-        sessionKey: res.data.sessionid
-      })
-    };
-
 
     if (app.globalData.sessionId) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -179,6 +172,12 @@ Page({
         sessionKey: app.globalData.sessionId,
       })
     } else {
+      app.sessionInfoReadyCallback = res => {
+        console.log("get res is "+ res)
+        this.setData({
+          sessionKey: res.data.sessionid
+        })
+      };
       console.log("globalData.sessionId is empty, need callback")
     }
 
