@@ -5,13 +5,13 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
+    var that = this
+    // 登录，获取sessionid
     wx.login({
       success: res => {
         var code = res.code; //返回code
         //在wx.request中，this不表示app或者本文件的上下文；而是在index的上下文了；如后面判断了this.sessionInfoReadyCallback是否存在
-        var that = this
+
         console.log('获取用户code是：',code);
         wx.request({
           url: 'https://www.microservice.work:8080/getlogin',
@@ -24,10 +24,10 @@ App({
           success: function(res) {
             console.log(res)
             if(res.data.result == 'true'){
-              console.log('用户信息获取成功');
+              console.log('用户登录成功');
               that.globalData.sessionId = res.data.sessionid
             }else{
-              console.log('用户信息获取失败');
+              console.log('用户登录失败');
               that.globalData.sessionId = "none"
             }
 
@@ -58,7 +58,7 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+              this.userInfo = res.userInfo
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
@@ -73,6 +73,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    sessionId: null
+    sessionId: null,
+    accounts: null
   },
 })

@@ -53,7 +53,7 @@ Page({
      //console.log(nickname)
      var _this = this;
       wx.request({
-        //url: 'https://www.microservice.work:8090/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
+        //url: 'https://www.microservice.work:8080/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
         url: 'https://www.microservice.work:8080/login',
         method: 'GET',
         data:{
@@ -61,10 +61,13 @@ Page({
           password:this.data.passW,
           bond:'1',
           share:'1',
-          duration:'30',
+          duration:'90',
           sell:'0',
           nickname:this.data.userInfo.nickName,
-          sessionid:this.data.sessionKey
+          sessionid:this.data.sessionKey,
+          country:this.data.country,
+          city:this.data.city,
+          gender:this.data.gender
         },
         //method: 'POST',
         /*
@@ -126,6 +129,44 @@ Page({
 
   //事件处理函数
   bindViewTap: function() {
+    // var _this = this;
+    // console.log('enter query submited-tickets')
+    // wx.request({
+    //   url: 'https://www.microservice.work:8090/querytickets',
+    //   method: 'GET',
+    //   data:{
+    //     sessionid:this.data.sessionKey
+    //   },
+    //   success: function(res) {
+    //     console.log(res)// 服务器回包信息
+    //     if(res.data.result == "SUCCESS"){
+    //       console.log('提交查询成功')
+    //       app.globalData.accounts = res.data.tickets
+    //       // wx.showToast({ title: '提交成功' })
+    //       // _this.setData({
+    //       //   motto: '恭喜！提交预约成功！'
+    //       // })
+    //     }else{
+    //       console.log('提交查询失败')
+    //       // wx.showToast({ title: '提交失败', icon:'none' })
+    //       // _this.setData({
+    //       //   motto: '预约失败！请校验账户信息并重试！'
+    //       // })
+    //     }
+    //   },
+    //   fail: function(res) {
+    //     //console.log(url)
+    //     console.log('提交查询异常')
+    //     console.log(res)// 服务器回包信息
+    //     // wx.showToast({ title: '系统错误', icon:'none' })
+    //     // _this.setData({
+    //     //   motto: '抱歉！预约失败了！'
+    //     // })
+
+    //   }
+    // })
+
+
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -136,6 +177,7 @@ Page({
    */
   onLoad: function (options) {
 
+    console.log('app sessionid is '+ app.globalData.sessionid)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -177,6 +219,7 @@ Page({
         this.setData({
           sessionKey: res.data.sessionid
         })
+        app.globalData.sessionid = res.data.sessionid
       };
       console.log("globalData.sessionId is empty, need callback")
     }

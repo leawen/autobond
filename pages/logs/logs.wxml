@@ -1,6 +1,12 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
+  <view class="viewName" style="">
+    <button class="queryBtn" bindtap="queryBtnClick">查询</button>
+  </view>
+  <view class="accounts-tips">
+    <text class="accounts-tips">{{tips}}</text>
+  </view>
+  <block wx:for="{{accounts}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
   </block>
 </view>
