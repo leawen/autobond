@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/wxml/index",
+    "pages/license/license",
     "pages/logs/logs"
   ],
   "window": {
