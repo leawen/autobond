@@ -1,0 +1,13 @@
+<view>
+  <view class='title'>用户授权协议</view>
+
+  <view class='h1'>使用条款及声明</view>
+  <view>
+    xxx
+  </view>
+
+  <view class='h1'>小程序用途</view>
+  <view>
+    yyy
+  </view>
+</view>

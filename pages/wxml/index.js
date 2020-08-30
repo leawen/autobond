@@ -35,9 +35,43 @@ Page({
       inviteCode:e.detail.value
     })
   },
+  //用户协议勾选框
+  agree(e){
+    var flag = e.detail.value[0];
+    if (flag === undefined) {
+      this.data.bbb = "#bbb";
+      flag = false;
+
+    } else {
+      this.data.bbb = "red";
+      flag = true;
+    }
+    this.setData({
+      if_rem_user: flag,
+      bbb: this.data.bbb
+    })
+  },
+  //用户协议
+  terms: function (){
+    wx.navigateTo({
+      url: '/pages/license/license',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   //登录按钮点击事件，调用参数要用：this.data.参数；
   //设置参数值，要使用this.setData({}）方法
   loginBtnClick:function(){
+    if (this.data.if_rem_user === undefined) {
+      this.data.if_rem_user = false;
+    }
+    if (this.data.if_rem_user == false) {
+      this.setData({
+        infoMess: '未勾选《用户协议》',
+      })
+      return;
+    }
     if(this.data.userN.length == 0 || this.data.passW.length == 0 ){
       this.setData({
         infoMess:'提示：用户名、密码不能为空！',
