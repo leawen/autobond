@@ -65,9 +65,9 @@ Page({
           sell:'0',
           nickname:this.data.userInfo.nickName,
           sessionid:this.data.sessionKey,
-          country:this.data.country,
-          city:this.data.city,
-          gender:this.data.gender
+          country:this.data.userInfo.country,
+          city:this.data.userInfo.city,
+          gender:this.data.userInfo.gender
         },
         //method: 'POST',
         /*
@@ -85,7 +85,7 @@ Page({
 
             wx.showToast({ title: '提交成功' })
             _this.setData({
-              motto: '恭喜！提交预约成功！'
+              motto: '恭喜！提交预约成功！点击头像查询已预约账户信息！'
             })
           }else{
             console.log('get return else')
@@ -177,7 +177,7 @@ Page({
    */
   onLoad: function (options) {
 
-    console.log('app sessionid is '+ app.globalData.sessionid)
+    console.log('app sessionid is '+ app.globalData.sessionId)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -210,12 +210,14 @@ Page({
     if (app.globalData.sessionId) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
+      console.log("index onload get app sessionid ：" + app.globalData.sessionId)
       this.setData({
         sessionKey: app.globalData.sessionId,
       })
+      console.log("index onload get this sessionKey ：" + this.data.sessionKey,)
     } else {
       app.sessionInfoReadyCallback = res => {
-        console.log("get res is "+ res)
+        console.log("sessionid call back， get sessionid is "+ res.data.sessionid)
         this.setData({
           sessionKey: res.data.sessionid
         })
