@@ -25,6 +25,14 @@
       bindinput="inviteCodeInput" />
     </view>
     -->
+  <view class="viewInfo" style="">
+    <checkbox-group bindchange="agree">
+      <checkbox name="box_check" value='{{if_rem_user}}'></checkbox>
+      我已阅读并同意
+      <navigator style='color:red;' bindtap="terms">《用户协议》</navigator>
+      <!---text style='color:red;' bindtap="terms">《用户协议》</text-->
+    </checkbox-group>
+  </view>
   <view class="viewName" style="">
     <button class="uploadBtn" bindtap="loginBtnClick">提交</button>
     <button class="clearBtn" bindtap="clearBtnClick">清除</button>
