@@ -13,7 +13,7 @@
   属性提交：bindsubmit="方法名" 重置：bindreset="方法名"，达到清除输入框内容的目的
   js文件中的用法，e.detail.value.userName.length-->
   <view class="itemViewA">账 户：
-      <input class="input" name="account" value='{{Account}}' placeholder="请输入账号" 
+      <input class="input" name="account" value='{{Account}}' placeholder="请输入账号（东财账户）" 
       bindinput="accountInput"/>
     </view>
   <view class="itemViewP">密 码：

@@ -54,10 +54,10 @@ Page({
   //用户协议
   terms: function (){
     wx.navigateTo({
-      url: '/pages/license/license',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      url: '../license/license'
+      //success: function (res) { },
+      //fail: function (res) { },
+      //complete: function (res) { }
     })
   },
   //登录按钮点击事件，调用参数要用：this.data.参数；
@@ -68,7 +68,7 @@ Page({
     }
     if (this.data.if_rem_user == false) {
       this.setData({
-        infoMess: '未勾选《用户协议》',
+        infoMess: '提示：未勾选《用户协议》',
       })
       return;
     }
