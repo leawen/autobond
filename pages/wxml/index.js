@@ -63,6 +63,11 @@ Page({
   //登录按钮点击事件，调用参数要用：this.data.参数；
   //设置参数值，要使用this.setData({}）方法
   loginBtnClick:function(){
+    this.setData({
+      motto: '请提交要预约申购的账户信息',
+      infoMess: ''
+    })
+
     if (this.data.if_rem_user === undefined) {
       this.data.if_rem_user = false;
     }
