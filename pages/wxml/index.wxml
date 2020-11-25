@@ -20,11 +20,10 @@
       <input class="input" password value='{{Password}}' placeholder="请输入密码"
       bindinput="passWdInput" />
     </view>
-<!---  <view class="itemViewC">邀请码：
-      <input class="input" invitecode value='{{InviteCode}}' placeholder="请输入邀请码"
-      bindinput="inviteCodeInput" />
+  <view class="itemViewEmail">邮箱：
+      <input class="input" invitecode value='{{EmailAddress}}' placeholder="通知申购情况"
+      bindinput="emailAddress" />
     </view>
-    -->
   <view class="viewInfo" style="">
     <checkbox-group bindchange="agree">
       <checkbox name="box_check" value='{{if_rem_user}}'></checkbox>

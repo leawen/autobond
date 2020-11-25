@@ -18,6 +18,7 @@ Page({
     inviteCode: '',
     //与后端的连接信息
     sessionKey: '',
+    email:'',
   },
   //用户名和密码输入框事件
   accountInput:function(e){
@@ -30,9 +31,9 @@ Page({
       passW:e.detail.value
     })
   },
-  inviteCodeInput:function(e){
+  emailAddress:function(e){
     this.setData({
-      inviteCode:e.detail.value
+      email:e.detail.value
     })
   },
   //用户协议勾选框
@@ -77,9 +78,9 @@ Page({
       })
       return;
     }
-    if(this.data.userN.length == 0 || this.data.passW.length == 0 ){
+    if(this.data.userN.length == 0 || this.data.passW.length == 0 || this.data.email.length == 0){
       this.setData({
-        infoMess:'提示：用户名、密码不能为空！',
+        infoMess:'提示：用户名、密码、邮箱不能为空！',
       })
     }else{
      this.setData({
@@ -106,7 +107,8 @@ Page({
           sessionid:this.data.sessionKey,
           country:this.data.userInfo.country,
           city:this.data.userInfo.city,
-          gender:this.data.userInfo.gender
+          gender:this.data.userInfo.gender,
+          email:this.data.email,
         },
         //method: 'POST',
         /*
@@ -163,6 +165,7 @@ Page({
       Account:'',
       Password:'',
       InviteCode:'',
+      EmailAddress:'',
     })
   },
 

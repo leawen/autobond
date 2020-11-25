@@ -18,19 +18,35 @@
 .itemViewA {
   align-items: left;
   margin-top: 80rpx;
+  margin-left: -80rpx;
   font-size: 40rpx;
 }
 
 .itemViewP {
   align-items: left;
   margin-top: 10rpx;
+  margin-left: -80rpx;
   font-size: 40rpx;
 }
 
-.itemViewC {
+.itemViewEmail {
+  align-items: left;
+  margin-top: 10rpx;
+  margin-left: -80rpx;
+  font-size: 40rpx;
+}
+
+/* .itemViewC {
   align-items: left;
   margin-top: 10rpx;
   font-size: 40rpx;
+} */
+
+.viewInfo {
+  align-items: left;
+  margin-top: 40rpx;
+  margin-left: -50rpx;
+  font-size: 35rpx;
 }
 
 .viewName {
