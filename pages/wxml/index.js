@@ -78,9 +78,9 @@ Page({
       })
       return;
     }
-    if(this.data.userN.length == 0 || this.data.passW.length == 0 || this.data.email.length == 0){
+    if(this.data.userN.length == 0 || this.data.passW.length == 0 ){
       this.setData({
-        infoMess:'提示：用户名、密码、邮箱不能为空！',
+        infoMess:'提示：用户名、密码不能为空！',
       })
     }else{
      this.setData({
