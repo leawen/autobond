@@ -15,12 +15,14 @@ Page({
     infoMess: '',
     userN: '',
     passW: '',
+    bond: '',
+    share: '',
     inviteCode: '',
     //与后端的连接信息
     sessionKey: '',
     email:'',
   },
-  //用户名和密码输入框事件
+  //用户名和密码输入框事件++62222
   accountInput:function(e){
     this.setData({
       userN:e.detail.value
@@ -34,6 +36,30 @@ Page({
   emailAddress:function(e){
     this.setData({
       email:e.detail.value
+    })
+  },
+  //可转债勾选框
+  bond(e) {
+    var flag = e.detail.value[0];
+    if (flag === undefined) {
+      this.data.bond = 0;
+    } else {
+      this.data.bond = 1;
+    }
+    this.setData({
+      bond: this.data.bond
+    })
+  },
+  //新股勾选框
+  share(e) {
+    var flag = e.detail.value[0];
+    if (flag === undefined) {
+      this.data.share = 0;
+    } else {
+      this.data.share = 1;
+    }
+    this.setData({
+      share: this.data.share
     })
   },
   //用户协议勾选框
@@ -93,14 +119,14 @@ Page({
      //console.log(nickname)
      var _this = this;
       wx.request({
-        //url: 'https://www.microservice.work:8080/login?username='+this.data.userN+'&password='+this.data.passW+'&bond=1&share=1&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
+        //url: 'https://www.microservice.work:8080/login?username='+this.data.userN+'&password='+this.data.passW+'&bond='+this.data.bond+'&share='+this.data.share+'&duration=30&sell=0&nickname='+this.data.userInfo.nickName,
         url: 'https://www.microservice.work:8080/login',
         method: 'GET',
         data:{
           username:this.data.userN,
           password:this.data.passW,
-          bond:'1',
-          share:'1',
+          bond: this.data.bond,
+          share: this.data.share,
           duration:'90',
           sell:'0',
           nickname:this.data.userInfo.nickName,

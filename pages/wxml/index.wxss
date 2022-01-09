@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* margin-top: -150rpx; */
   margin-top: -150rpx;
   font-size: 40rpx;
 }
@@ -18,21 +19,21 @@
 .itemViewA {
   align-items: left;
   margin-top: 80rpx;
-  margin-left: -80rpx;
+  margin-left: 50rpx;
   font-size: 40rpx;
 }
 
 .itemViewP {
   align-items: left;
   margin-top: 10rpx;
-  margin-left: -80rpx;
+  margin-left: 50rpx;
   font-size: 40rpx;
 }
 
 .itemViewEmail {
   align-items: left;
   margin-top: 10rpx;
-  margin-left: -80rpx;
+  margin-left: 50rpx;
   font-size: 40rpx;
 }
 
@@ -42,15 +43,23 @@
   font-size: 40rpx;
 } */
 
+.viewCheck {
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  font-size: 35rpx;
+  font-display: flex;
+}
+
 .viewInfo {
   align-items: left;
-  margin-top: 40rpx;
-  margin-left: -50rpx;
+  margin-top: 100rpx;
+  margin-left: 180rpx;
   font-size: 35rpx;
+  font-display: flex;
 }
 
 .viewName {
-  margin-top: 100rpx;
+  margin-top: 50rpx;
   align-items: left;
 }
 
@@ -90,4 +99,5 @@
 
 .usermotto {
   margin-top: 100rpx;
+  margin-left: 150rpx;
 }

@@ -20,12 +20,28 @@
       <input class="input" password value='{{Password}}' placeholder="请输入密码"
       bindinput="passWdInput" />
     </view>
-  <view class="itemViewEmail">邮箱：
+  <view class="itemViewEmail">邮 箱：
       <input class="input" invitecode value='{{EmailAddress}}' placeholder="通知申购情况"
       bindinput="emailAddress" />
     </view>
+  <view class="viewCheck" style="">
+    <checkbox-group bindchange="bond">
+      <checkbox name="bond_check" value='{{bond}}' checked="true" ></checkbox>
+      自动申购可转债
+    </checkbox-group>
+  </view>
+  <view class="viewCheck" style="align-items = left">
+    <checkbox-group bindchange="share"> 
+      <checkbox name="share_check" value='{{share}}' ></checkbox>
+      自动申购新股
+    </checkbox-group>
+  </view>
   <view class="viewInfo" style="">
     <checkbox-group bindchange="agree">
+      <!-- <checkbox name="bond_check" value='{{bond}}'></checkbox>
+      自动申购可转债
+      <checkbox name="share_check" value='{{share}}'></checkbox>
+      自动申购新股       -->
       <checkbox name="box_check" value='{{if_rem_user}}'></checkbox>
       我已阅读并同意
       <navigator style='color:red;' bindtap="terms">《用户协议》</navigator>
