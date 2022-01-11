@@ -1,5 +1,5 @@
 <!--logs.wxml-->
-<view class="container log-list">
+<!-- <view class="container log-list">
   <view class="viewName" style="">
     <button class="queryBtn" bindtap="queryBtnClick">查询</button>
   </view>
@@ -9,4 +9,23 @@
   <block wx:for="{{accounts}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
   </block>
+</view> -->
+
+<view>
+    <button class="queryBtn" bindtap="queryBtnClick2">查询</button>
+
+ <view class="table">
+  <view class="tr">
+   <view class="th">账号信息</view> 
+   <view class="th">提交时间</view>
+   <view class="th">剩余服务天数</view>
+  </view>
+  <block wx:for = "{{items}}" wx:key=""> 
+    <view class="tr">
+   <view class="td">{{item.count}}</view>
+   <view class="td">{{item.time}}</view>
+   <view class="td">{{item.day}}</view>
+   </view>
+  </block>
+ </view>
 </view>

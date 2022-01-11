@@ -2,13 +2,30 @@
   "pages": [
     "pages/wxml/index",
     "pages/license/license",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/query/query"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#5D5D5D",
+    "selectedColor": "#5495E6",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/wxml/index",
+        "text": "申购"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "查询"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
