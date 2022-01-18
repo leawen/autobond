@@ -2,8 +2,7 @@
   "pages": [
     "pages/wxml/index",
     "pages/license/license",
-    "pages/logs/logs",
-    "pages/query/query"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

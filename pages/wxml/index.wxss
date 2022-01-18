@@ -1,11 +1,10 @@
 /* pages/wxml/index.wxss */
-.userinfo {
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-top: -150rpx; */
-  margin-top: -150rpx;
-  font-size: 40rpx;
+  /* margin-top: -150rpx; 
+  /* font-size: 40rpx; 
 }
 
 .userinfo-avatar {
@@ -13,12 +12,12 @@
   height: 180rpx;
   margin: 20rpx;
   border-radius: 50%;
-}
+} */
 
 /*为啥没生效*/
 .itemViewA {
   align-items: left;
-  margin-top: 80rpx;
+  margin-top: 1rpx;
   margin-left: 50rpx;
   font-size: 40rpx;
 }
@@ -52,14 +51,27 @@
 
 .viewInfo {
   align-items: left;
-  margin-top: 100rpx;
+  margin-top: 80rpx;
   margin-left: 180rpx;
   font-size: 35rpx;
   font-display: flex;
 }
 
+.infomess {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  color: red;
+}
+
+.infomess, .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .viewName {
-  margin-top: 50rpx;
+  margin-top: 40rpx;
   align-items: left;
 }
 
@@ -98,6 +110,6 @@
 }
 
 .usermotto {
-  margin-top: 100rpx;
+  margin-top: 10rpx;
   margin-left: 150rpx;
 }

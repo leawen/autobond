@@ -14,14 +14,29 @@
 .tr {
   width: 100%;
   display: flex;
+  /*垂直排列
+  flex-direction: column;
+  */
   /*垂直居中*/
   align-items: center;
   /*水平居中*/
   justify-content: center;
-  height: 3rem;
+  height: 10rem;
 }
-/*设置所有单元格*/
+/*设置所有单元格
 .th,.td{
+   width: 40%;
+  /*文字居中
+  text-align: center;
+  /*垂直居中
+  align-items: center;
+  /*水平居中
+  justify-content: center;
+  /*和上面.tr的height对应，数值修改一样就可
+  height: 10rem;
+}
+*/
+.th{
    width: 40%;
   /*文字居中*/
   text-align: center;
@@ -30,8 +45,24 @@
   /*水平居中*/
   justify-content: center;
   /*和上面.tr的height对应，数值修改一样就可*/
-  height: 3rem;
+  height: 10rem;
 }
+.td{
+   width: 11.111111111%;
+  /*文字居中*/
+  text-align: center;
+  /*垂直居中*/
+  align-items: center;
+  /*水平居中*/
+  justify-content: center;
+  /*和上面.tr的height对应，数值修改一样就可*/
+  height: 10rem;
+    word-break:break-all;
+
+}
+/* .font-break {
+  word-break:break-all;
+} */
 /*设置表格边框的边框，不想麻烦所以所有的边框都在这里写了，可以自己修改*/
 .tr,.th,.td,.table{
   border: 1rpx solid rgb(13, 13, 14);
@@ -45,6 +76,8 @@
 }
 /*文字单元格*/
 .td{
-  padding-top: 50rpx;
+  display: flex;
+  /*padding-top: 50rpx;*/
   background:rgb(252, 250, 250);
+    font-size: large;
 }

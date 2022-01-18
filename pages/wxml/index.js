@@ -15,8 +15,8 @@ Page({
     infoMess: '',
     userN: '',
     passW: '',
-    bond: '',
-    share: '',
+    bond: '1',
+    share: '0',
     inviteCode: '',
     //与后端的连接信息
     sessionKey: '',
@@ -42,9 +42,9 @@ Page({
   bond(e) {
     var flag = e.detail.value[0];
     if (flag === undefined) {
-      this.data.bond = 0;
+      this.data.bond = '0';
     } else {
-      this.data.bond = 1;
+      this.data.bond = '1';
     }
     this.setData({
       bond: this.data.bond
@@ -53,10 +53,14 @@ Page({
   //新股勾选框
   share(e) {
     var flag = e.detail.value[0];
+    console.log(e.detail)
+    console.log(flag)
     if (flag === undefined) {
-      this.data.share = 0;
+      console.log("share=0")
+      this.data.share = '0';
     } else {
-      this.data.share = 1;
+      console.log("share=1")
+      this.data.share = '1';
     }
     this.setData({
       share: this.data.share
@@ -100,7 +104,7 @@ Page({
     }
     if (this.data.if_rem_user == false) {
       this.setData({
-        infoMess: '提示：未勾选《用户协议》',
+        infoMess: '提示：未勾选同意《用户协议》',
       })
       return;
     }
@@ -115,6 +119,8 @@ Page({
 
      console.log(this.data.userInfo)
      console.log(this.data.userInfo.nickName)
+     console.log(this.data.bond)
+     console.log(this.data.share)
      //var nickname = encodeURI(this.data.userInfo.nickName)
      //console.log(nickname)
      var _this = this;
@@ -152,7 +158,7 @@ Page({
 
             wx.showToast({ title: '提交成功' })
             _this.setData({
-              motto: '恭喜！提交预约成功！点击头像查询已预约账户信息！'
+              motto: '恭喜！提交预约成功！'
             })
           }else{
             console.log('get return else')
