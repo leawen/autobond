@@ -157,20 +157,10 @@ Page({
               }
               var bond_succ = res.data.tickets[i].split(",")[5]
               console.log('今天申购可转债成功：' + bond_succ)
-              if (bond_succ == "1") {
-                map.set("bond_succ", "是")
-              }
-              else {
-                map.set("bond_succ", "否")
-              }
+              map.set("bond_succ", bond_succ)
               var share_succ = res.data.tickets[i].split(",")[6]
               console.log('今天申购新股成功：' + share_succ)
-              if (share_succ == "1") {
-                map.set("share_succ", "是")
-              }
-              else {
-                map.set("share_succ", "否")
-              }
+              map.set("share_succ", share_succ)
               map.set("email", res.data.tickets[i].split(",")[7])
               aa[i] = (strMapToObj(map))
 

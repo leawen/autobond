@@ -21,8 +21,8 @@
    <view class="th">剩余服务天数</view>
    <view class="th">自动申购可转债</view> 
    <view class="th">自动申购新股</view>
-   <view class="th">今天申购可转债成功</view>
-   <view class="th">今天申购新股成功</view> 
+   <view class="th">今天申购可转债成功数</view>
+   <view class="th">今天申购新股成功数</view> 
    <view class="th">email</view>
    <view class="th">操作</view>
 
