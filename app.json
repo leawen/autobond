@@ -2,6 +2,7 @@
   "pages": [
     "pages/wxml/index",
     "pages/license/license",
+    "pages/query/query",
     "pages/logs/logs"
   ],
   "window": {
@@ -23,6 +24,10 @@
       {
         "pagePath": "pages/logs/logs",
         "text": "查询"
+      },
+      {
+        "pagePath": "pages/query/query",
+        "text": "今日股债"
       }
     ]
   },

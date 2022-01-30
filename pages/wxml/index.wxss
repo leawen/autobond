@@ -22,11 +22,21 @@
   font-size: 40rpx;
 }
 
+.itemViewA::before {
+  content: '*';
+  color: red;
+}
+
 .itemViewP {
   align-items: left;
   margin-top: 10rpx;
   margin-left: 50rpx;
   font-size: 40rpx;
+}
+
+.itemViewP::before {
+  content: '*';
+  color: red;
 }
 
 .itemViewEmail {
@@ -36,6 +46,10 @@
   font-size: 40rpx;
 }
 
+.itemViewEmail::before {
+  content: '*';
+  color: red;
+}
 /* .itemViewC {
   align-items: left;
   margin-top: 10rpx;

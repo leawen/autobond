@@ -1,2 +1,49 @@
 <!--pages/query/query.wxml-->
-<text>pages/query/query.wxml</text>
+<text class='c-green'>【可转债】</text>
+<view class="table">
+  <view class="tr">
+   <view class="th">名字</view> 
+   <view class="th">代码</view>
+   <view class="th">正股名字</view> 
+   <view class="th">正股代码</view>
+   <view class="th">评级</view>
+   <view class="th">发行规模(亿元)</view> 
+   <view class="th">转股价</view>
+   <view class="th">正股价</view>
+   <view class="th">申购日期</view>
+   <view class="th">上市日期</view>
+  </view>
+  <block wx:for = "{{items}}" wx:key=""> 
+    <view class="tr">
+   <view class="td">{{item.name}}</view>
+   <view class="td">{{item.code}}</view>
+   <view class="td">{{item.swapname}}</view>
+   <view class="td">{{item.swapcode}}</view>
+   <view class="td">{{item.rate}}</view>
+   <view class="td">{{item.num}}</view>
+   <view class="td">{{item.swapprice}}</view>
+   <view class="td">{{item.zgj}}</view>
+  <view class="td">{{item.start_date}}</view>
+   <view class="td">{{item.list_date}}</view>
+   </view>
+  </block>
+ </view>
+ <text class='c-green'>【新股】</text>
+ <view class="table2">
+  <view class="tr2">
+   <view class="th2">名字</view> 
+   <view class="th2">代码</view>
+   <view class="th2">发行价</view>
+   <view class="th2">申购日期</view>
+   <view class="th2">上市日期</view> 
+  </view>
+  <block wx:for = "{{items2}}" wx:key=""> 
+    <view class="tr2">
+   <view class="td2">{{item.name}}</view>
+   <view class="td2">{{item.code}}</view>
+   <view class="td2">{{item.price}}</view>
+   <view class="td2">{{item.start_date}}</view>
+   <view class="td2">{{item.list_date}}</view>
+   </view>
+  </block>
+ </view>
