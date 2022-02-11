@@ -15,6 +15,7 @@ Page({
     wx.showModal({
       title: '是否确定删除内容？',
       success: function (res) {
+      if (res.confirm){
       console.log('开始删除')
       console.log(nowidx)
       console.log(oldarr[nowidx])
@@ -55,6 +56,7 @@ Page({
           console.log('账户会话为空')// 服务器回包信息
           wx.showToast({ title: '登录信息异常，请重新进入小程序', icon: 'none' })
         }
+      }
       }
     })
   },
