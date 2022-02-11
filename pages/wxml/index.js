@@ -98,6 +98,10 @@ Page({
       motto: '请提交要预约申购的账户信息',
       infoMess: ''
     })
+    wx.showModal({
+      title: '重要提示',
+      content: '请确认该账户已经开通可转债权限，详细方法请关注公众号：可转债管理：https://mp.weixin.qq.com/s/BNvHp2YT8B42I0re6aqTPw',
+    })
 
     if (this.data.if_rem_user === undefined) {
       this.data.if_rem_user = false;
